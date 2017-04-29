@@ -5,6 +5,11 @@
   <% @jobs.each do |job| %>
   <tr>
     <td>
+      <% if job.is_hidden %>
+         (Hidden)
+      <% else %>
+         (Public)
+      <% end %>
       <%= link_to(job.title, job_path(job)) %>
     </td>
     <td>
@@ -14,6 +19,7 @@
     <td>
       <%= job.created_at %>
     </td>
+
   </tr>
   <% end %>
 </table>
